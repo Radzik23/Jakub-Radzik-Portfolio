@@ -63,7 +63,7 @@ export const PROJECTS = [
     title: "Zakątek Odkrywców",
     description: "A high-performance custom WordPress theme built from scratch (no page builders) for a local kindergarten, featuring a custom CMS and dynamic menu systems.",
     tech: ["WordPress", "PHP", "JavaScript", "HTML/CSS"],
-    image: "/projects/E-Commerce-Architecture.png", 
+    image: "/projects/zakatek.png", 
     liveUrl: "https://zakatek-odkrywcow.pl/", 
     githubUrl: "https://github.com/Radzik23/kindergarten-theme",
   },
