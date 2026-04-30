@@ -1,36 +1,125 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio - Jakub Radzik
 
-## Getting Started
+Nowoczesne, responsywne portfolio stworzone w `Next.js` (App Router), z naciskiem na czytelny design, wydajność i profesjonalną prezentację doświadczenia, projektów oraz kontaktu.
 
-First, run the development server:
+## Overview
+
+Projekt zawiera:
+- sekcję hero z krótkim bio i CTA,
+- sekcję projektów (`Selected Works`) w układzie kart,
+- sekcję doświadczeń i kompetencji,
+- sekcję `Beyond the Code` z zainteresowaniami,
+- formularz kontaktowy z wysyłką maila przez `Resend`,
+- spójny layout oparty o `Tailwind CSS` i komponenty UI.
+
+## Tech Stack
+
+- `Next.js 16` (App Router)
+- `React 19`
+- `TypeScript`
+- `Tailwind CSS 4`
+- `framer-motion` (animacje)
+- `lucide-react` (ikony)
+- `Resend` (obsługa formularza kontaktowego)
+- `ESLint` (linting)
+
+## Project Structure
+
+Najważniejsze katalogi i pliki:
+
+- `app/page.tsx` - główny skład strony (sekcje)
+- `app/layout.tsx` - layout aplikacji
+- `app/globals.css` - style globalne
+- `app/actions/sendEmail.ts` - server action wysyłająca maila
+- `components/sections/*` - sekcje portfolio (`Navbar`, `Hero`, `FeaturedWork`, `Journey`, `TechArsenal`, `BeyondCode`, `Contact`, `Footer`)
+- `components/ui/*` - współdzielone komponenty UI (button, card, input, badge itd.)
+- `lib/data.ts` - dane statyczne: personal info, experience, education, projects, skills
+- `public/*` - obrazy, CV i assety projektowe
+
+## Local Development
+
+### 1. Instalacja zależności
+
+```bash
+npm install
+```
+
+### 2. Uruchomienie projektu
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Aplikacja będzie dostępna pod adresem:
+- [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Build produkcyjny
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+### 4. Lint
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run lint
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Environment Variables
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Formularz kontaktowy używa `Resend`. Utwórz plik `.env.local` w katalogu głównym projektu:
 
-## Deploy on Vercel
+```bash
+RESEND_API_KEY=your_resend_api_key
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Bez poprawnego klucza formularz nie wyśle wiadomości.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Contact Form Flow
+
+1. Użytkownik wypełnia formularz w sekcji `Contact`.
+2. Dane trafiają do server action `sendEmail`.
+3. `sendEmail` waliduje podstawowe pola (`name`, `email`, `message`).
+4. Jeśli walidacja przejdzie, wiadomość jest wysyłana przez `Resend`.
+5. UI pokazuje status sukcesu albo błędu.
+
+Plik odpowiedzialny za ten flow:
+- `app/actions/sendEmail.ts`
+
+## Content Customization
+
+Najważniejsze dane edytujesz w:
+- `lib/data.ts`
+
+Możesz tam zmienić:
+- `PERSONAL_INFO` (imię, rola, headline, bio),
+- `EXPERIENCE`,
+- `EDUCATION`,
+- `PROJECTS`,
+- `SKILLS`.
+
+## Assets
+
+- Zdjęcia i grafiki trzymaj w `public/`.
+- Dla obrazów z `next/image` używaj ścieżek zaczynających się od `/`, np. `/projects/example.png`.
+- Plik CV jest dostępny z `public/CV.pdf`.
+
+## Deployment
+
+Najwygodniej wdrożyć na Vercel:
+
+1. Podłącz repozytorium do Vercel.
+2. Ustaw zmienną środowiskową `RESEND_API_KEY`.
+3. Uruchom deployment.
+
+Po wdrożeniu sprawdź:
+- działanie sekcji i linków anchor,
+- formularz kontaktowy (wysyłka maila),
+- responsywność (mobile/tablet/desktop),
+- wydajność obrazów.
+
+## Notes
+
+- Projekt jest przygotowany pod dalszy rozwój (kolejne sekcje, więcej projektów, integracje).
+- UI i dane są odseparowane, dzięki czemu edycja treści nie wymaga dużych zmian w komponentach.
