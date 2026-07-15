@@ -27,8 +27,7 @@ function GithubIcon(props: React.SVGProps<SVGSVGElement>) {
 }
 
 export function FeaturedWork() {
-  // Bierzemy tylko 3 pierwsze projekty
-  const displayProjects = PROJECTS.slice(0, 3);
+  const displayProjects = PROJECTS;
 
   return (
     <section id="work" className="py-24 bg-background">
@@ -44,6 +43,7 @@ export function FeaturedWork() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
           {displayProjects.map((project, index) => {
             const isMain = index === 0;
+            const isWide = index === displayProjects.length - 1 && displayProjects.length > 3;
 
             return (
               <Card 
@@ -51,13 +51,13 @@ export function FeaturedWork() {
                 className={`group overflow-hidden bg-card border border-border/40 
                   shadow-[0px_10px_30px_-5px_rgba(45,45,45,0.05)] hover:shadow-[0px_20px_50px_-10px_rgba(45,45,45,0.1)] 
                   transition-all duration-500 rounded-3xl flex flex-col h-full py-0 gap-0
-                  ${isMain ? 'lg:col-span-2 lg:row-span-2' : 'lg:col-span-1 lg:row-span-1'}
+                  ${isMain ? 'lg:col-span-2 lg:row-span-2' : isWide ? 'lg:col-span-3 lg:row-span-1' : 'lg:col-span-1 lg:row-span-1'}
                 `}
               >
                 
                 {/* Kontener na zdjęcie z wdrożonym komponentem Image */}
                 <div className={`relative w-full bg-muted/30 flex items-center justify-center overflow-hidden border-b border-border/40
-                  ${isMain ? 'h-72 lg:h-[800px]' : 'h-64 lg:h-56'}
+                  ${isMain ? 'h-72 lg:h-[800px]' : isWide ? 'h-64 lg:h-[420px] p-6 lg:p-10' : 'h-64 lg:h-56'}
                 `}>
                   {project.image ? (
                     <Image 
@@ -67,10 +67,12 @@ export function FeaturedWork() {
                       sizes={
                         isMain
                           ? "(max-width: 1024px) 100vw, 66vw"
-                          : "(max-width: 1024px) 100vw, 33vw"
+                          : isWide
+                            ? "(max-width: 1024px) 100vw, 100vw"
+                            : "(max-width: 1024px) 100vw, 33vw"
                       }
                       priority={index === 0}
-                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                      className={`${isWide ? 'object-contain' : 'object-cover'} group-hover:scale-105 transition-transform duration-700`}
                     />
                   ) : (
                     <div className="absolute inset-0 flex items-center justify-center text-muted-foreground group-hover:scale-105 transition-transform duration-700">

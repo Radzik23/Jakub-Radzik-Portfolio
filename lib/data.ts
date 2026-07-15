@@ -75,6 +75,15 @@ export const PROJECTS = [
     image: "/projects/Mobile.png",
     liveUrl: "#", 
     githubUrl: "#", 
+  },
+  {
+    id: 4,
+    title: "Kucharz z Sąsiedztwa",
+    description: "A high-performance static catering website built with Astro and a headless WordPress CMS. Features dynamic menu management, client reviews, and automated FTP deployment via GitHub Actions.",
+    tech: ["Astro", "WordPress", "TypeScript", "REST API", "GitHub Actions"],
+    image: "/projects/kucharzzsaseidztwa.png",
+    liveUrl: "https://kucharzzsasiedztwa.pl/",
+    githubUrl: "#",
   }
 ];
 
