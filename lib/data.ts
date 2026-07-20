@@ -89,6 +89,6 @@ export const PROJECTS = [
 
 export const SKILLS = {
   frontend: ["React", "React Native", "Next.js", "TypeScript", "JavaScript (ES6+)", "Tailwind CSS", "HTML5 & CSS3 (SASS)", "Redux Toolkit", "Zustand"],
-  backend: ["Node.js", "PostgreSQL", "Prisma ORM", "WordPress", "PHP", "Firebase", "Expo"],
+  backend: ["Node.js", "PostgreSQL", "Prisma ORM", "WordPress", "PHP", "Firebase", "Expo", "Python"],
   tools: ["Git", "GitHub", "Figma", "Jest", "React Testing Library"],
 };
