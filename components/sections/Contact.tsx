@@ -1,6 +1,7 @@
 // components/sections/Contact.tsx
 'use client';
 
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -29,6 +30,7 @@ function LinkedinIcon(props: SVGProps<SVGSVGElement>) {
 }
 
 export function Contact() {
+  const t = useTranslations("contact");
   const [pending, setPending] = useState(false);
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const formRef = useRef<HTMLFormElement>(null);
@@ -36,53 +38,49 @@ export function Contact() {
   async function actionHandler(formData: FormData) {
     setPending(true);
     setStatus('idle');
-    
+
     const result = await sendEmail(formData);
-    
+
     if (result?.error) {
       setStatus('error');
     } else {
       setStatus('success');
       formRef.current?.reset();
     }
-    
+
     setPending(false);
   }
 
   return (
     <section id="contact" className="py-24 relative overflow-hidden bg-background border-t border-border/40">
-      {/* Subtelny gradient w tle */}
       <div className="absolute top-1/2 left-1/2 -z-10 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-muted blur-[100px]" />
 
       <div className="container mx-auto px-4 max-w-[1200px]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-          
-          {/* LEWA STRONA: Formularz Kontaktowy */}
           <div className="bg-card border border-border/50 shadow-[0px_10px_30px_-5px_rgba(45,45,45,0.05)] rounded-3xl p-8 md:p-10">
-            <h3 className="text-2xl font-semibold mb-6 text-foreground">Send a message</h3>
+            <h3 className="text-2xl font-semibold mb-6 text-foreground">{t("formTitle")}</h3>
             <form ref={formRef} action={actionHandler} className="space-y-6">
-              
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <Label htmlFor="name" className="text-foreground font-medium text-base">Full Name</Label>
-                  <Input 
-                    id="name" 
-                    name="name" 
-                    placeholder="Jane Doe" 
-                    required 
+                  <Label htmlFor="name" className="text-foreground font-medium text-base">{t("fullName")}</Label>
+                  <Input
+                    id="name"
+                    name="name"
+                    placeholder={t("fullNamePlaceholder")}
+                    required
                     disabled={pending}
                     className="bg-background border-border/50 focus-visible:ring-primary rounded-xl h-14 text-base px-4"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="email" className="text-foreground font-medium text-base">Email Address</Label>
-                  <Input 
-                    id="email" 
-                    name="email" 
-                    type="email" 
-                    placeholder="jane@company.com" 
-                    required 
+                  <Label htmlFor="email" className="text-foreground font-medium text-base">{t("email")}</Label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder={t("emailPlaceholder")}
+                    required
                     disabled={pending}
                     className="bg-background border-border/50 focus-visible:ring-primary rounded-xl h-14 text-base px-4"
                   />
@@ -90,52 +88,54 @@ export function Contact() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="company" className="text-foreground font-medium text-base">Company / Organization <span className="text-muted-foreground/50">(Optional)</span></Label>
-                <Input 
-                  id="company" 
-                  name="company" 
-                  placeholder="Where are you reaching out from?" 
+                <Label htmlFor="company" className="text-foreground font-medium text-base">
+                  {t("company")} <span className="text-muted-foreground/50">{t("companyOptional")}</span>
+                </Label>
+                <Input
+                  id="company"
+                  name="company"
+                  placeholder={t("companyPlaceholder")}
                   disabled={pending}
                   className="bg-background border-border/50 focus-visible:ring-primary rounded-xl h-14 text-base px-4"
                 />
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="message" className="text-foreground font-medium text-base">Message</Label>
-                <Textarea 
-                  id="message" 
-                  name="message" 
-                  placeholder="Tell me about the role or project..." 
+                <Label htmlFor="message" className="text-foreground font-medium text-base">{t("message")}</Label>
+                <Textarea
+                  id="message"
+                  name="message"
+                  placeholder={t("messagePlaceholder")}
                   rows={4}
-                  required 
+                  required
                   disabled={pending}
                   className="bg-background border-border/50 focus-visible:ring-primary rounded-xl resize-none text-base p-4 min-h-32"
                 />
               </div>
 
-              <Button 
-                type="submit" 
-                size="lg" 
+              <Button
+                type="submit"
+                size="lg"
                 disabled={pending}
                 className={`w-full rounded-xl h-14 text-lg font-medium transition-all duration-300 ${
-                  status === 'success' 
-                    ? 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-none' 
+                  status === 'success'
+                    ? 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-none'
                     : 'bg-primary hover:bg-primary/90 text-primary-foreground group shadow-md'
                 }`}
               >
                 {pending ? (
                   <>
                     <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                    Sending...
+                    {t("sending")}
                   </>
                 ) : status === 'success' ? (
                   <>
                     <CheckCircle2 className="mr-2 h-5 w-5" />
-                    Message Sent!
+                    {t("sent")}
                   </>
                 ) : (
                   <>
-                    Send Message 
+                    {t("send")}
                     <Send className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </>
                 )}
@@ -143,60 +143,54 @@ export function Contact() {
 
               {status === 'error' && (
                 <p className="text-destructive text-sm text-center mt-2">
-                  Something went wrong. Please try again later.
+                  {t("error")}
                 </p>
               )}
-              
             </form>
           </div>
 
-          {/* PRAWA STRONA: Bezpośrednie Informacje Kontaktowe */}
           <div className="flex flex-col justify-center space-y-8 lg:pl-8 lg:py-8">
             <div>
               <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-4 text-foreground">
-                Let's discuss new <span className="italic font-serif text-primary">opportunities.</span>
+                {t("headline")} <span className="italic font-serif text-primary">{t("headlineAccent")}</span>
               </h2>
               <p className="text-muted-foreground text-lg max-w-[400px] leading-relaxed">
-                Currently accepting selected freelance projects and full-time inquiries. Whether you have a project in mind or just want to chat about tech, feel free to reach out.
+                {t("description")}
               </p>
             </div>
 
             <div className="space-y-6">
-              {/* Email */}
               <a href="mailto:radzik.jakub2003@gmail.com" className="flex items-center group">
                 <div className="h-12 w-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-500">
                   <Mail className="h-5 w-5" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-muted-foreground">Email</p>
+                  <p className="text-sm font-medium text-muted-foreground">{t("emailLabel")}</p>
                   <p className="text-lg font-medium text-foreground group-hover:text-primary transition-colors">radzik.jakub2003@gmail.com</p>
                 </div>
               </a>
 
-              {/* Phone */}
               <a href="tel:+48664851804" className="flex items-center group">
                 <div className="h-12 w-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-500">
                   <Phone className="h-5 w-5" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-muted-foreground">Phone</p>
+                  <p className="text-sm font-medium text-muted-foreground">{t("phoneLabel")}</p>
                   <p className="text-lg font-medium text-foreground group-hover:text-primary transition-colors">+48 664 851 804</p>
                 </div>
               </a>
 
-              {/* Location */}
               <div className="flex items-center group">
                 <div className="h-12 w-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-500">
                   <MapPin className="h-5 w-5" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-muted-foreground">Location</p>
-                  <p className="text-lg font-medium text-foreground">Wrocław, Poland (Remote / Hybrid)</p>
+                  <p className="text-sm font-medium text-muted-foreground">{t("locationLabel")}</p>
+                  <p className="text-lg font-medium text-foreground">{t("location")}</p>
                 </div>
               </div>
             </div>
 
-            {/* Linki Społecznościowe - z kreską oddzielającą */}
             <div className="flex flex-wrap gap-4 pt-6 border-t border-border/40">
               <a href="https://www.linkedin.com/in/jakub-radzik-wroclaw/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center h-12 px-6 rounded-xl bg-card border border-border/50 hover:border-primary hover:text-primary font-medium transition-all shadow-sm group">
                 <LinkedinIcon className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" /> LinkedIn
@@ -206,7 +200,6 @@ export function Contact() {
               </a>
             </div>
           </div>
-
         </div>
       </div>
     </section>
