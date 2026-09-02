@@ -1,0 +1,147 @@
+{
+  "metadata": {
+    "title": "Jakub Radzik | Junior Full-Stack Developer",
+    "description": "Portfolio Junior Full-Stack Developera tworzącego wydajne i eleganckie doświadczenia cyfrowe."
+  },
+  "nav": {
+    "portfolio": "Portfolio",
+    "work": "Projekty",
+    "expertise": "Kompetencje",
+    "experience": "Doświadczenie",
+    "contact": "Kontakt",
+    "cv": "CV"
+  },
+  "hero": {
+    "downloadCv": "Pobierz CV",
+    "github": "GitHub"
+  },
+  "personalInfo": {
+    "name": "Jakub Radzik",
+    "role": "Junior Full-Stack Developer",
+    "headline": "Junior Full-Stack Developer tworzący wydajne i eleganckie doświadczenia cyfrowe.",
+    "bio": "Inżynier informatyki, obecnie na studiach magisterskich z AI i Machine Learning. Biegły w React, React Native i Next.js, z komercyjnym doświadczeniem w budowaniu nowoczesnych aplikacji webowych i mobilnych."
+  },
+  "featuredWork": {
+    "title": "Wybrane projekty",
+    "subtitle": "Zbiór projektów zbudowanych z intencją i dbałością o detale.",
+    "viewProject": "Zobacz projekt",
+    "mainImage": "Główne zdjęcie projektu",
+    "imagePlaceholder": "Placeholder zdjęcia"
+  },
+  "projects": [
+    {
+      "id": 1,
+      "title": "TikTok Recipe Hub (w trakcie)",
+      "description": "Aplikacja full-stack integrująca modele AI do automatycznej transkrypcji filmów z TikToka i ekstrakcji ustrukturyzowanych danych przepisów. NextAuth (GitHub OAuth) i Server Actions."
+    },
+    {
+      "id": 2,
+      "title": "Zakątek Odkrywców",
+      "description": "Wydajny, autorski motyw WordPress (bez page builderów) dla lokalnego przedszkola — z własnym CMS-em i dynamicznym systemem menu."
+    },
+    {
+      "id": 3,
+      "title": "Aplikacja Health & Wellness",
+      "description": "Komercyjna aplikacja mobilna cross-platform z trackerami treningów i postu. Architektura offline-first dla płynnej pracy. (Obecnie niewydana)."
+    },
+    {
+      "id": 4,
+      "title": "Kucharz z Sąsiedztwa",
+      "description": "Wydajna strona cateringowa w Astro z headless WordPress CMS. Dynamiczne menu, opinie klientów i automatyczny deploy FTP przez GitHub Actions."
+    }
+  ],
+  "techArsenal": {
+    "title": "Arsenał technologiczny",
+    "subtitle": "Narzędzia i technologie, których używam do budowy skalowalnych aplikacji.",
+    "frontend": "Frontend",
+    "backend": "Backend i architektura",
+    "tools": "Narzędzia i metodologia AI"
+  },
+  "journey": {
+    "experienceTitle": "Ścieżka zawodowa",
+    "educationTitle": "Wykształcenie"
+  },
+  "experience": [
+    {
+      "id": 1,
+      "title": "Frontend Developer",
+      "company": "Develo Art",
+      "date": "Maj 2025 — obecnie",
+      "description": "Rozwój cross-platformowych aplikacji mobilnych zdrowia i wellness w React Native, Expo i TypeScript. Architektura offline-first (Zustand, AsyncStorage) oraz integracja Firebase do pobierania danych w czasie rzeczywistym."
+    },
+    {
+      "id": 2,
+      "title": "Freelance Web Developer",
+      "company": "Samodzielnie",
+      "date": "Czerwiec 2025 — obecnie",
+      "description": "Prowadzenie projektów end-to-end dla lokalnych firm. Budowa wydajnych motywów WordPress od zera (PHP, HTML, CSS, JS). Własne funkcje CMS i dynamiczne systemy menu."
+    },
+    {
+      "id": 3,
+      "title": "Specjalista ds. obsługi klienta",
+      "company": "Dom samochodowy Germaz Ford",
+      "date": "Czerwiec 2022 — Lis 2024",
+      "description": "Codzienna komunikacja z klientami, samodzielne rozwiązywanie spraw i rozwój umiejętności interpersonalnych oraz analitycznego myślenia."
+    }
+  ],
+  "education": [
+    {
+      "id": 1,
+      "degree": "Magister — AI i Machine Learning",
+      "institution": "Uniwersytet WSB Merito we Wrocławiu",
+      "date": "2026 — obecnie",
+      "description": "Zaawansowane algorytmy uczenia maszynowego i praktyczne zastosowania AI w nowoczesnym oprogramowaniu."
+    },
+    {
+      "id": 2,
+      "degree": "Inż. informatyki (Systemy chmurowe i inżynieria aplikacji)",
+      "institution": "Uniwersytet Dolnośląska Szkoła Wyższa",
+      "date": "2022 — 2026",
+      "description": "Podstawy inżynierii oprogramowania, algorytmów i architektury systemów rozproszonych."
+    }
+  ],
+  "beyondCode": {
+    "title": "Poza kodem",
+    "subtitle": "Gdy nie siedzę przy pixelach ani debugowaniu komponentów.",
+    "hobbies": [
+      {
+        "title": "Motoryzacja i tuning",
+        "description": "Pasja do mechaniki samochodowej i kultury automotive. Doceniam inżynierię wysokiej wydajności i praktyczny tuning."
+      },
+      {
+        "title": "Fotografia i design",
+        "description": "Zawsze w pogoni za idealnym kadrm. W wolnym czasie fotografia, obróbka zdjęć i eksploracja grafiki cyfrowej."
+      },
+      {
+        "title": "Squash",
+        "description": "Ulubiony sposób na aktywność i reset głowy. Szybki, strategiczny sport — idealna równowaga dla pracy przy komputerze."
+      }
+    ]
+  },
+  "contact": {
+    "formTitle": "Wyślij wiadomość",
+    "fullName": "Imię i nazwisko",
+    "fullNamePlaceholder": "Jan Kowalski",
+    "email": "Adres e-mail",
+    "emailPlaceholder": "jan@firma.pl",
+    "company": "Firma / Organizacja",
+    "companyOptional": "(opcjonalnie)",
+    "companyPlaceholder": "Skąd się odezwiesz?",
+    "message": "Wiadomość",
+    "messagePlaceholder": "Opowiedz o roli lub projekcie...",
+    "sending": "Wysyłanie...",
+    "sent": "Wysłano!",
+    "send": "Wyślij wiadomość",
+    "error": "Coś poszło nie tak. Spróbuj ponownie później.",
+    "headline": "Porozmawiajmy o nowych",
+    "headlineAccent": "możliwościach.",
+    "description": "Przyjmuję wybrane projekty freelance i zapytania o pracę na pełen etat. Masz pomysł na projekt albo chcesz pogadać o tech — napisz.",
+    "emailLabel": "E-mail",
+    "phoneLabel": "Telefon",
+    "locationLabel": "Lokalizacja",
+    "location": "Wrocław, Polska (zdalnie / hybrydowo)"
+  },
+  "footer": {
+    "tagline": "Zbudowane z dbałością o detale."
+  }
+}
