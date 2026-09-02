@@ -4,7 +4,6 @@ import { Terminal, Database, Wrench } from "lucide-react";
 
 export function TechArsenal() {
   return (
-    // Używamy id="expertise", żeby nawigacja mogła tu zjechać
     <section id="expertise" className="py-24 bg-muted/35">
       <div className="container mx-auto px-4">
         

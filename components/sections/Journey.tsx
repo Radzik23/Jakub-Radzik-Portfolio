@@ -17,7 +17,6 @@ export function Journey() {
             <div className="space-y-10 border-l border-border/70 pl-8 ml-3">
               {EXPERIENCE.map((item) => (
                 <div key={item.id} className="relative">
-                  {/* Niebieska kropka na osi */}
                   <span className="absolute -left-[37.5px] top-1.5 h-2.5 w-2.5 rounded-full bg-primary ring-4 ring-background" />
                   
                   <div className="text-sm font-medium text-primary mb-2 flex items-center gap-2">

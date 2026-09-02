@@ -13,7 +13,6 @@ export default function Home() {
     <main className="min-h-screen bg-background text-foreground overflow-hidden">
       <Navbar />
       
-      {/* Delikatne fade-in animacje dla sekcji */}
       <FadeIn delay={0.2}>
         <Hero />
       </FadeIn>

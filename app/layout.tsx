@@ -26,11 +26,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // Zmieniamy flex i min-h-screen, żeby stopka zawsze była na dole
     <html lang="en" className="light">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}>
         {children}
-        <Footer /> {/* <- Dodajemy stopkę tutaj */}
+        <Footer /> 
       </body>
     </html>
   );

@@ -20,7 +20,7 @@ export function Navbar() {
         {/* Oplatamy przycisk tagiem <a>, dokładnie tak samo jak w Hero.tsx */}
         <a href="/CV.pdf" download="CV.pdf">
           <Button variant="default" className="rounded-full h-11 px-6 text-base bg-primary hover:bg-primary/90 text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-10px_hsl(var(--primary)/0.7)]">
-            Resume
+            CV
           </Button>
         </a>
       </div>
